@@ -33,18 +33,17 @@ This project implements a RESTful API using Express.js to handle user-related op
 
 1. Clone the repository:
    
-   git clone https://github.com/your-username/user-management-backend.git
+   git clone https://github.com/DEVnitishOfficial/crud_assignment.git
 
 2. Install dependencies:
    
-   cd user-management-backend
+   cd crud_assignment
    npm install
 
 3. Set up your environment variables by creating a `.env` file:
-   ```plaintext
+ 
    MONGO_URL=your-mongodb-connection-url
    PORT=3000
-   ```
 
 4. Run the server:
    
