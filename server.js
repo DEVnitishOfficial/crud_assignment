@@ -1,22 +1,11 @@
 
+const app = require('./app.js')
 
-require('dotenv').config()
-const express = require("express");
-const cors = require("cors");
-const {userRoute} = require("./routes/userRoutes.js");
-const {connect} = require('mongoose');
+const PORT = process.env.PORT || 3000;
+const MONGO_URL = process.env.MONGO_URL
 
-const app = express();
-
-
-// middleware to work with json data
-
-app.use(cors());
-app.use(express.json())
-app.use("/",userRoute)
-
-app.listen(process.env.PORT || 3000,async() => {
-    await connectToDataBase()
-    console.log("server running on port :",process.env.PORT);
+app.listen(PORT,() => {
+ console.log(`Server listening on http://localhost:${PORT}`);
+ console.log(`MongoDb connected to ${MONGO_URL}`);
 })
 

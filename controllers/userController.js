@@ -1,12 +1,21 @@
 
-const {userModel} = require("../models/userModel.js")
+const userModel = require("../model/userModel.js")
 
 // register user
-
+exports.home = (req,res) => {
+    res.send('Hello says crud assignment') 
+}
 exports.registerUser = async (req,res) => {
-    const {name,email,password} = req.body;
     try{
-    const registerData = await userModel.create({...req.body}) // creating a document in database
+    const {name,email,password} = req.body
+
+    const registerData = await userModel.create({
+        name,
+        email,
+        password
+    })
+    
+    // creating a document in database
     res.status(200).json({
        success:true,
        message:'User registered successfully',
@@ -17,7 +26,7 @@ exports.registerUser = async (req,res) => {
      console.log(error);
      res.status(400).json({
         success:false,
-        message: error.message
+        message: `error in sending data ${error.message}`
      })
     }
 }
